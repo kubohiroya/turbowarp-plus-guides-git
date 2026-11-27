@@ -1,0 +1,71 @@
+{
+  "ok": true,
+  "headless": true,
+  "editorRevision": "8af3660bd0bb0ddefbe51a9694f4e843a7200f76",
+  "artifact": {
+    "filename": "git-4.0.sb3",
+    "bytes": 5255772,
+    "sha256": "7fe6fb54640295079a59ae8932252df72ef838a07bb58c926fdf271754bb084b"
+  },
+  "checks": [
+    {
+      "unit": "snapshot",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "diff",
+      "guide": "event:workspace.changed"
+    },
+    {
+      "unit": "diff",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "stage",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "branch",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "merge",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "remote",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プラとモコのGit教室</title>
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+<main>
+<header>
+<p class="series">プラとモコのエディター教室</p>
+<h1>プラとモコのGit教室</h1>
+<p>Scratch作品の変更を読み、必要なものだけ履歴に残して、仲間と共有する流れを学びます。</p>
+</header>
+<nav aria-label="単元の目次">
+<h2>6つの単元</h2>
+<ol><li><a href="#snapshot">Gitの正体</a></li>
+<li><a href="#diff">変更を読む</a></li>
+<li><a href="#stage">記録する範囲</a></li>
+<li><a href="#branch">枝を分けて試す</a></li>
+<li><a href="#merge">合わせる・直す</a></li>
+<li><a href="#remote">安全に共有する</a></li></ol>
+</nav>
+<section id="play">
+<h2>紙芝居で試す</h2>
+<p>約10〜12分。どの単元からでも始められます。解説、クイズ、答えの順に進みます。</p>
+<p><a class="download" href="work/git-4.0.sb3" download>紙芝居のSB3をダウンロード</a></p>
+<ol>
+<li><a href="https://kubohiroya.github.io/turbowarp-plus-editor/editor.html?lang=ja">Plus Editor</a>で「ファイル」→「SB3ファイルを開く…」を選びます。</li>
+<li>実行画面を引出しに表示して緑の旗を押し、単元を選びます。ステージにフォーカスがある間はSpaceで説明やGuideを先へ進められます。</li>
+</ol>
+<figure><img src="images/menu.png" alt="緑の旗を押すと表示される6単元の目次"><figcaption>プラとモコの紙芝居の目次。</figcaption></figure>
+<p>紙芝居の練習では星の間隔を変えて、変更前と後を考えます。実際にGitの操作を試す場合は、説明の手順に沿って空の練習フォルダーを使います。手元の確認にはGitHub接続は不要です。</p>
+<p><a href="examples/GIT-PRACTICE.md">空のフォルダーで試すGitの手順</a></p>
+</section>
+<section class="unit" id="snapshot">
+<h2>1. Gitの正体</h2>
+<p>有効な保存形式で書き出してから、Gitで意味のある時点をコミットします。共有先へのpushは、手元で記録されたコミットを送る操作です。</p>
+<ul><li>保存・commit・pushは別の操作</li>
+<li>履歴は、記録した状態と意図を残す</li>
+<li>未記録の作業や素材の扱いも確認する</li></ul>
+<p><strong>試すこと</strong>　作品の速度を変えた場面で、保存しただけ、コミットした後、pushした後にそれぞれ何が残るか説明します。</p>
+</section>
+<section class="unit" id="diff">
+<h2>2. 変更を読む</h2>
+<p>状態は変更のあるファイルや領域を示します。差分は具体的にどの行やブロックが変わったかを示します。SB3の中身を作品フォルダとして展開して扱う環境では、ブロック差分を読めます。</p>
+<ul><li>状態と差分で、何が変わったか確認</li>
+<li>無関係な変更を混ぜない</li>
+<li>差分レビューと動作確認を組み合わせる</li></ul>
+<p><strong>試すこと</strong>　間隔が60から70に変わった場合に、ファイル名だけを見た状態と変更の意図まで読めた状態の違いを考えます。</p>
+</section>
+<section class="unit" id="stage">
+<h2>3. 記録する範囲</h2>
+<p>作業中の変更から、次に記録する内容をステージします。ゲームのルールと説明の誤字修正を分けて記録すれば、後から差分を読んで理由を追えます。</p>
+<ul><li>次のcommitへ入れる内容を選ぶ</li>
+<li>ステージ側の差分を確認する</li>
+<li>一つの目的と、その理由を記録する</li></ul>
+<p><strong>試すこと</strong>　二つの変更があるとき、得点ルールのコミットに入れる変更を一つ選びます。コマンドの練習では git diff --staged で記録する差分を確かめます。</p>
+</section>
+<section class="unit" id="branch">
+<h2>4. 枝を分けて試す</h2>
+<p>ブランチはコミットを指す名前です。動作する版を保ちながら試作を進めるために、作業用のブランチを切れます。切り替える前に現在のブランチと変更の状態を見ます。</p>
+<ul><li>共通の履歴から、作業の流れを分ける</li>
+<li>今いるブランチを確認する</li>
+<li>未コミットの変更を把握して切り替える</li></ul>
+<p><strong>試すこと</strong>　「星を出す間隔を変える」試作のブランチを作る想定で、作成前に記録しておきたい状態を決めます。</p>
+</section>
+<section class="unit" id="merge">
+<h2>5. 合わせる・直す</h2>
+<p>merge後は、競合の有無にかかわらず、残った変更と作品の動作を確かめます。共有した変更を取り消す場合は、取り消しのコミットを新しく残す revert が候補になります。</p>
+<ul><li>自動mergeでも、統合結果を確認する</li>
+<li>競合は意図を読んで解消する</li>
+<li>共有済み履歴の修正方法を慎重に選ぶ</li></ul>
+<p><strong>試すこと</strong>　一人が間隔を変え、もう一人が個数を変えたとき、両方を残した後に何を確認するか考えます。同じ値を変えた場合は二人の意図を比べます。</p>
+</section>
+<section class="unit" id="remote">
+<h2>6. 安全に共有する</h2>
+<p>fetchで相手の履歴を取得し、pullで取り込み、pushで自分の変更を送ります。送信先とブランチ、差分、公開範囲を確認し、共有後はレビューを使って変更を見てもらいます。</p>
+<ul><li>fetch・pull・pushの役割を区別する</li>
+<li>送信先と枝、差分を確認して共有</li>
+<li>秘密を履歴へ入れない</li></ul>
+<p><strong>試すこと</strong>　仲間の変更を知りたいだけの場面、取り込みたい場面、自分の変更を送りたい場面に、それぞれどの操作を選ぶか答えます。</p>
+</section>
+<section id="references"><h2>参考資料</h2><ul><li><a href="https://git-scm.com/book/ja/v2">Pro Git 日本語版</a></li>
+<li><a href="https://kubohiroya.github.io/turbowarp-plus-editor/features/git/">TurboWarp Plus Editorの作品フォルダとGit</a></li></ul></section>
+<footer><p>Hiroya Kubo · Kamishibai App 4.0.21</p></footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,6 @@
+関連: https://github.com/kubohiroya/turbowarp-plus-editor/issues/724
+目的: プラとモコによる6単元の講座1作品を独立したリポジトリへ移す。
+依存: App 4.0.21、Guide 0.1.0、再生確認の公開Editor 8af3660bd0bb0ddefbe51a9694f4e843a7200f76。
+受け入れ基準: 解説・台本・素材・配布SB3を保存し、全単元の選択、クイズの再挑戦・正解、目次への復帰を確認する。
+切り戻し: Samples作業ツリーに保持した元の講座を使う。
+検証: 再生結果は playback.json。解説の6アンカー、PC幅とモバイル幅、配布SB3のハッシュを確認済み。

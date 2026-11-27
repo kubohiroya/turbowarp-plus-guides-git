@@ -1,0 +1,1258 @@
+kamishibai: "4.0"
+controls:
+  keymaps:
+    production:
+      Space: navigation.nextAction
+bubbleStyles:
+  lesson:
+    maxWidth: 320
+    textLocale: ja
+    distance: 0
+    tailLength: 8
+assets:
+  PuraIdle:
+    kind: costume
+    target: Pura
+    file: assets/pura.png
+  MokoIdle:
+    kind: costume
+    target: Moko
+    file: assets/moko.png
+  Unit1:
+    kind: costume
+    file: assets/Unit1.svg
+    target: Unit1
+  Unit2:
+    kind: costume
+    file: assets/Unit2.svg
+    target: Unit2
+  Unit3:
+    kind: costume
+    file: assets/Unit3.svg
+    target: Unit3
+  Unit4:
+    kind: costume
+    file: assets/Unit4.svg
+    target: Unit4
+  Unit5:
+    kind: costume
+    file: assets/Unit5.svg
+    target: Unit5
+  Unit6:
+    kind: costume
+    file: assets/Unit6.svg
+    target: Unit6
+  AnswerA:
+    kind: costume
+    file: assets/AnswerA.svg
+    target: AnswerA
+  AnswerB:
+    kind: costume
+    file: assets/AnswerB.svg
+    target: AnswerB
+  NextUnit:
+    kind: costume
+    file: assets/NextUnit.svg
+    target: NextUnit
+  Menu:
+    kind: costume
+    file: assets/Menu.svg
+    target: Menu
+  gitMenu:
+    kind: backdrop
+    file: assets/gitMenu.svg
+  gitButton1:
+    kind: costume
+    file: assets/gitButton1.svg
+    target: Unit1
+  gitButton2:
+    kind: costume
+    file: assets/gitButton2.svg
+    target: Unit2
+  gitButton3:
+    kind: costume
+    file: assets/gitButton3.svg
+    target: Unit3
+  gitButton4:
+    kind: costume
+    file: assets/gitButton4.svg
+    target: Unit4
+  gitButton5:
+    kind: costume
+    file: assets/gitButton5.svg
+    target: Unit5
+  gitButton6:
+    kind: costume
+    file: assets/gitButton6.svg
+    target: Unit6
+  Board_git_snapshot:
+    kind: backdrop
+    file: assets/Board_git_snapshot.svg
+  Quiz_git_snapshot:
+    kind: backdrop
+    file: assets/Quiz_git_snapshot.svg
+  Recap_git_snapshot:
+    kind: backdrop
+    file: assets/Recap_git_snapshot.svg
+  Board_git_diff:
+    kind: backdrop
+    file: assets/Board_git_diff.svg
+  Quiz_git_diff:
+    kind: backdrop
+    file: assets/Quiz_git_diff.svg
+  Recap_git_diff:
+    kind: backdrop
+    file: assets/Recap_git_diff.svg
+  Board_git_stage:
+    kind: backdrop
+    file: assets/Board_git_stage.svg
+  Quiz_git_stage:
+    kind: backdrop
+    file: assets/Quiz_git_stage.svg
+  Recap_git_stage:
+    kind: backdrop
+    file: assets/Recap_git_stage.svg
+  Board_git_branch:
+    kind: backdrop
+    file: assets/Board_git_branch.svg
+  Quiz_git_branch:
+    kind: backdrop
+    file: assets/Quiz_git_branch.svg
+  Recap_git_branch:
+    kind: backdrop
+    file: assets/Recap_git_branch.svg
+  Board_git_merge:
+    kind: backdrop
+    file: assets/Board_git_merge.svg
+  Quiz_git_merge:
+    kind: backdrop
+    file: assets/Quiz_git_merge.svg
+  Recap_git_merge:
+    kind: backdrop
+    file: assets/Recap_git_merge.svg
+  Board_git_remote:
+    kind: backdrop
+    file: assets/Board_git_remote.svg
+  Quiz_git_remote:
+    kind: backdrop
+    file: assets/Quiz_git_remote.svg
+  Recap_git_remote:
+    kind: backdrop
+    file: assets/Recap_git_remote.svg
+actors:
+  Pura: PuraIdle
+  Moko: MokoIdle
+  Unit1: Unit1
+  Unit2: Unit2
+  Unit3: Unit3
+  Unit4: Unit4
+  Unit5: Unit5
+  Unit6: Unit6
+  AnswerA: AnswerA
+  AnswerB: AnswerB
+  NextUnit: NextUnit
+  Menu: Menu
+cover:
+  backdrop: gitMenu
+scenes:
+  menu:
+    - stage: gitMenu
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - Unit1.show:
+        skin: gitButton1
+        x: -112
+        y: 55
+        scale: 100
+    - Unit2.show:
+        skin: gitButton2
+        x: 112
+        y: 55
+        scale: 100
+    - Unit3.show:
+        skin: gitButton3
+        x: -112
+        y: -12
+        scale: 100
+    - Unit4.show:
+        skin: gitButton4
+        x: 112
+        y: -12
+        scale: 100
+    - Unit5.show:
+        skin: gitButton5
+        x: -112
+        y: -79
+        scale: 100
+    - Unit6.show:
+        skin: gitButton6
+        x: 112
+        y: -79
+        scale: 100
+    - broadcastMessageAndWait: choice:git_menu
+    - goto: menu
+  snapshot_intro:
+    - stage: Board_git_snapshot
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: また「最終版の最終版3.sb3」が増えた！ 最終版の大家族だよ。
+        seconds: 6.6
+        styles:
+          - lesson
+    - Pura.say:
+        text: Gitは変更の履歴を扱う道具。いつ、どんな意図で変えたかを、コミットとして残せるんだ。
+        seconds: 8.3
+        styles:
+          - lesson
+    - Moko.say:
+        text: 保存したら、世界中に作品が公開されるの？
+        seconds: 4.6
+        styles:
+          - lesson
+    - Pura.say:
+        text: 保存、コミット、共有は別の操作だよ。ローカルにコミットしても、それだけで外へは送られない。
+        seconds: 8.7
+        styles:
+          - lesson
+    - Moko.say:
+        text: セーブは作業中の状態。コミットは、説明を添えて残す区切りだね。
+        seconds: 6.4
+        styles:
+          - lesson
+    - Pura.say:
+        text: そう。Gitの履歴は、記録した内容を取り出したり、変更の理由を調べたりする手がかりになる。
+        seconds: 8.7
+        styles:
+          - lesson
+    - Moko.say:
+        text: Gitがあれば、バックアップは全部いらない？
+        seconds: 4.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 未記録の変更や、追跡していないファイルまで守るわけじゃないよ。別の保存先も必要に応じて用意しよう。
+        seconds: 9.3
+        styles:
+          - lesson
+    - Moko.say:
+        text: SB3はひとまとめのファイル。中身の差分を、行として読めるとは限らないね。
+        seconds: 7.4
+        styles:
+          - lesson
+    - Pura.say:
+        text: Plusのフォルダー形式なら、ソースや素材を分けて扱える。形式と対応環境を確認し、まず複製した練習作品で試そう。
+        seconds: 10.4
+        styles:
+          - lesson
+    - Moko.say:
+        text: この講座は説明とクイズで進むよ。ぼくたちが勝手にcommitやpushをすることはないんだ。
+        seconds: 8.8
+        styles:
+          - lesson
+    - goto: snapshot_quiz
+  snapshot_quiz:
+    - stage: Quiz_git_snapshot
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_snapshot_quiz
+    - goto: snapshot_quiz
+  snapshot_retry:
+    - stage: Quiz_git_snapshot
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: ローカルとリモートは別の場所。手元の履歴を作る操作と、外へ送る操作を分けて考えよう。
+        seconds: 8.2
+        styles:
+          - lesson
+    - goto: snapshot_quiz
+  snapshot_yes:
+    - stage: Recap_git_snapshot
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: ローカルの履歴に記録されるよ。共有先へ送るpushは別の操作。保存とも区別して覚えよう。
+        seconds: 8.5
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - NextUnit.show:
+        skin: NextUnit
+        x: -112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_snapshot_yes
+    - goto: menu
+  diff_intro:
+    - stage: Board_git_diff
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: コミットの前に、目を閉じて「きっとうまくいった」と念じます！
+        seconds: 6.2
+        styles:
+          - lesson
+    - Pura.say:
+        text: 目を開けて。まず何が変わったかを見よう。状態と差分は、作業を理解する入口だよ。
+        seconds: 7.7
+        styles:
+          - lesson
+    - Moko.say:
+        text: 上の図は、60を70に変えた例。マイナス行が前、プラス行が後だね。
+        seconds: 6.7
+        styles:
+          - lesson
+    - Pura.say:
+        text: そう。これは説明用の図で、今のGitの状態を読み取った表示ではないよ。実際の差分はGit画面で確認しよう。
+        seconds: 9.9
+        styles:
+          - lesson
+    - Moko.say:
+        text: 間隔だけを変えたつもりなのに、音の素材も変わっていたら？
+        seconds: 5.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 意図した変更か調べよう。関連のない変更は混ぜず、必要な作業を別の区切りにすると説明しやすい。
+        seconds: 8.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: 自動で生成されるファイルが大量にあると、読みたい変更が埋もれそう。
+        seconds: 6.7
+        styles:
+          - lesson
+    - Pura.say:
+        text: 何を追跡するかはプロジェクトの方針に合わせよう。素材や生成物を、全部同じ扱いにはしないんだ。
+        seconds: 8.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: じゃあ実際のコードで、数値を一つ変えるところから試そう。
+        seconds: 5.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 「関数れんしゅう」の個数か間隔を変えてみて。ガイドは変更の発生までを待つ。Gitへの記録はまだ行わないよ。
+        seconds: 9.9
+        styles:
+          - lesson
+    - broadcastMessageAndWait: lesson:git_diff
+    - goto: diff_quiz
+  diff_quiz:
+    - stage: Quiz_git_diff
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_diff_quiz
+    - goto: diff_quiz
+  diff_retry:
+    - stage: Quiz_git_diff
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 予想外の変更が混じっているかもしれないね。まず実際に変わった対象と内容を確認しよう。
+        seconds: 8.2
+        styles:
+          - lesson
+    - goto: diff_quiz
+  diff_yes:
+    - stage: Recap_git_diff
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 差分から対象と意図を確かめよう。動作確認も必要で、差分が小さいだけで正しいとは限らないよ。
+        seconds: 8.7
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - NextUnit.show:
+        skin: NextUnit
+        x: -112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_diff_yes
+    - goto: menu
+  stage_intro:
+    - stage: Board_git_stage
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: Gitにもステージ？ スプライトが漫才をする場所？
+        seconds: 5.4
+        styles:
+          - lesson
+    - Pura.say:
+        text: 同じ言葉でも別物！ Gitのステージは、次のコミットへ入れる内容を準備する場所だよ。
+        seconds: 8.2
+        styles:
+          - lesson
+    - Moko.say:
+        text: ファイルを編集しただけでは、まだコミットに入れる準備ができたとは限らないんだね。
+        seconds: 7.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 対象の変更を選び、ステージした内容を確認し、意味のある区切りでコミットする。
+        seconds: 7.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: ステージした後、さらに数値を変えた。その変更も勝手に入る？
+        seconds: 6.1
+        styles:
+          - lesson
+    - Pura.say:
+        text: 通常は、後の編集は別の未ステージ変更になる。コミット直前には、ステージ側の差分を見よう。
+        seconds: 8.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: メッセージは「変更しました」で毎回よい？
+        seconds: 4.6
+        styles:
+          - lesson
+    - Pura.say:
+        text: 何を、なぜ変えたかが分かると役に立つ。「星が重ならないよう間隔を広げる」なら意図が伝わるね。
+        seconds: 8.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: 一行につき一コミットにすれば、最高に小さい！
+        seconds: 4.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 行数競争じゃないよ。一つの目的として理解し、確認できる単位を考えよう。必要な関連変更は一緒に含める。
+        seconds: 9.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: 記録できたら履歴を見て、入れたつもりの変更が入ったか確かめよう！
+        seconds: 6.6
+        styles:
+          - lesson
+    - goto: stage_quiz
+  stage_quiz:
+    - stage: Quiz_git_stage
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_stage_quiz
+    - goto: stage_quiz
+  stage_retry:
+    - stage: Quiz_git_stage
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 準備した時点と、その後の作業は別になり得るよ。何が次の記録に入るか、実際の差分を見よう。
+        seconds: 8.5
+        styles:
+          - lesson
+    - goto: stage_quiz
+  stage_yes:
+    - stage: Recap_git_stage
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: コミットに入るのは準備した内容。未ステージの変更と分けて、直前の対象を確認しよう。
+        seconds: 8
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - NextUnit.show:
+        skin: NextUnit
+        x: -112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_stage_yes
+    - goto: menu
+  branch_intro:
+    - stage: Board_git_branch
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: 新しい演出を試したい。でも、元の作品も見失いたくない！
+        seconds: 5.8
+        styles:
+          - lesson
+    - Pura.say:
+        text: ブランチで作業の流れを分けられる。共通の履歴から別の変更を重ね、あとで統合を考えよう。
+        seconds: 8.3
+        styles:
+          - lesson
+    - Moko.say:
+        text: 枝を作ると、全ファイルが別の箱に丸ごとコピーされるの？
+        seconds: 5.8
+        styles:
+          - lesson
+    - Pura.say:
+        text: Gitのブランチは、あるコミットを指す名前として考えるとよいよ。新しいコミットで、その指す先が進む。
+        seconds: 9.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: 名前は「星の改良」みたいに目的を示すと分かりやすいね。
+        seconds: 5.8
+        styles:
+          - lesson
+    - Pura.say:
+        text: 実際の命名規則はチームに合わせよう。作業を始める前に、今いるブランチを確認する習慣も大切だ。
+        seconds: 8.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: 未コミットの変更があるけど、とにかく切り替えれば大丈夫？
+        seconds: 5.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 切り替えが止められる場合も、変更が持ち越される場合もある。先に状態を確認し、保存や記録の方針を決めよう。
+        seconds: 9.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: 履歴と作業中のファイルは、いつも同じ話ではないんだね。
+        seconds: 5.8
+        styles:
+          - lesson
+    - Pura.say:
+        text: うん。どの枝で、どの変更を作っているかを意識すると、後から追いやすくなるよ。
+        seconds: 7.5
+        styles:
+          - lesson
+    - goto: branch_quiz
+  branch_quiz:
+    - stage: Quiz_git_branch
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_branch_quiz
+    - goto: branch_quiz
+  branch_retry:
+    - stage: Quiz_git_branch
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 枝の実体は単純なフォルダー複製とは違うよ。まず現在の枝と、残っている変更を確認しよう。
+        seconds: 8.3
+        styles:
+          - lesson
+    - goto: branch_quiz
+  branch_yes:
+    - stage: Recap_git_branch
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 現在地と作業状態を確認しよう。ブランチの履歴と、未コミットの作業を混同しないことが大切だよ。
+        seconds: 8.8
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - NextUnit.show:
+        skin: NextUnit
+        x: -112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_branch_yes
+    - goto: menu
+  merge_intro:
+    - stage: Board_git_merge
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: 別の枝を合わせよう。Gitがあるから、作品の意味も全部理解してくれるよね？
+        seconds: 7.4
+        styles:
+          - lesson
+    - Pura.say:
+        text: 文字として合わせられても、意図や動作まで保証しないよ。統合後には差分と動作を確認しよう。
+        seconds: 8.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: 同じ場所を違う内容に変えると、競合になることがあるんだね。
+        seconds: 6.1
+        styles:
+          - lesson
+    - Pura.say:
+        text: 両方の目的を読み、最終的にどんな状態にするか決める。片方を機械的に選べば正解とは限らない。
+        seconds: 8.7
+        styles:
+          - lesson
+    - Moko.say:
+        text: 競合の印を消しただけで、仕事が終わった気になりそう！
+        seconds: 5.6
+        styles:
+          - lesson
+    - Pura.say:
+        text: 必要な内容が残っているか確かめ、関連する処理も試そう。解消と動作確認はセットだよ。
+        seconds: 8
+        styles:
+          - lesson
+    - Moko.say:
+        text: 公開したコミットに間違いを見つけたら、過去を消せばよい？
+        seconds: 5.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 共有済みの履歴を勝手に書き換えると、他の人に影響する。打ち消す変更を新たに記録するrevertも選択肢になる。
+        seconds: 10.3
+        styles:
+          - lesson
+    - Moko.say:
+        text: 履歴を消すのと、変更を打ち消して履歴を残すのは、違う操作だね。
+        seconds: 6.4
+        styles:
+          - lesson
+    - Pura.say:
+        text: 修正方法は状況とチームの方針に合わせよう。分からない状態で破壊的な操作を連打せず、差分を確かめるんだ。
+        seconds: 9.6
+        styles:
+          - lesson
+    - goto: merge_quiz
+  merge_quiz:
+    - stage: Quiz_git_merge
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_merge_quiz
+    - goto: merge_quiz
+  merge_retry:
+    - stage: Quiz_git_merge
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: Gitは作品の意味まで判断してくれるわけではないよ。最終的な内容と動作を自分で確認しよう。
+        seconds: 8.7
+        styles:
+          - lesson
+    - goto: merge_quiz
+  merge_yes:
+    - stage: Recap_git_merge
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 競合の印を消すだけでは十分ではないね。統合した結果が、両方の目的を満たすか確かめよう。
+        seconds: 8.3
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - NextUnit.show:
+        skin: NextUnit
+        x: -112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_merge_yes
+    - goto: menu
+  remote_intro:
+    - stage: Board_git_remote
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: リモートって、遠くからエアコンを操作するやつ？
+        seconds: 5.1
+        styles:
+          - lesson
+    - Pura.say:
+        text: それはリモコン。Gitでは共有先のリポジトリ。GitHubはその置き場所を提供するサービスの一つだよ。
+        seconds: 9.6
+        styles:
+          - lesson
+    - Moko.say:
+        text: fetchで履歴を取り寄せて、相手の変更を調べる。pullは統合も行うんだね。
+        seconds: 7.7
+        styles:
+          - lesson
+    - Pura.say:
+        text: そう。pullでどう統合するかは設定や指定による。実行前に現在の枝と作業状態を確認しよう。
+        seconds: 8.7
+        styles:
+          - lesson
+    - Moko.say:
+        text: pushすれば、自分のコミットが共有先へ送られる。コミット前のファイル全部が送られるわけじゃないね。
+        seconds: 9.5
+        styles:
+          - lesson
+    - Pura.say:
+        text: 送信先と枝を確かめよう。共有前に差分を読み、必要な動作確認を行い、チームならレビューを依頼する。
+        seconds: 9.1
+        styles:
+          - lesson
+    - Moko.say:
+        text: パスワードも作品の素材と一緒に記録しておけば、便利そう！
+        seconds: 5.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: それは記録しない。秘密情報を履歴へ入れると、後でファイルを消しただけでは過去の記録に残る場合がある。
+        seconds: 9.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: .gitignoreに書けば、すでに追跡中の秘密まで自動で消える？
+        seconds: 6.7
+        styles:
+          - lesson
+    - Pura.say:
+        text: 消えないよ。ignoreは主に未追跡ファイルを扱う設定。漏えいした秘密は失効・再発行など、別の対応も必要になる。
+        seconds: 10.4
+        styles:
+          - lesson
+    - Moko.say:
+        text: まず手元で、小さく記録して、変更を読めるようにする。Gitは制作の相談相手になりそう！
+        seconds: 8.3
+        styles:
+          - lesson
+    - goto: remote_quiz
+  remote_quiz:
+    - stage: Quiz_git_remote
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_remote_quiz
+    - goto: remote_quiz
+  remote_retry:
+    - stage: Quiz_git_remote
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: ignoreは過去の履歴を消す機能ではないよ。送る内容と共有先を確認する方を選ぼう。
+        seconds: 8.2
+        styles:
+          - lesson
+    - goto: remote_quiz
+  remote_yes:
+    - stage: Recap_git_remote
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 共有する対象を確認しよう。履歴に入れた秘密は、ignoreや現在のファイル削除だけでは消えない場合があるよ。
+        seconds: 10.1
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:git_remote_yes
+    - goto: menu
