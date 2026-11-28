@@ -3,12 +3,6 @@ controls:
   keymaps:
     production:
       Space: navigation.nextAction
-bubbleStyles:
-  lesson:
-    maxWidth: 320
-    textLocale: ja
-    distance: 0
-    tailLength: 8
 assets:
   PuraIdle:
     kind: costume
@@ -58,6 +52,10 @@ assets:
     kind: costume
     file: assets/Menu.svg
     target: Menu
+  AdvanceCue:
+    kind: costume
+    file: assets/AdvanceCue.svg
+    target: AdvanceCue
   gitMenu:
     kind: backdrop
     file: assets/gitMenu.svg
@@ -152,6 +150,7 @@ actors:
   AnswerB: AnswerB
   NextUnit: NextUnit
   Menu: Menu
+  AdvanceCue: AdvanceCue
 cover:
   backdrop: gitMenu
 scenes:
@@ -167,6 +166,7 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
     - Pura.hide: {}
     - Moko.hide: {}
     - Unit1.show:
@@ -213,6 +213,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -223,61 +234,34 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: また「最終版の最終版3.sb3」が増えた！ 最終版の大家族だよ。
-        seconds: 6.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: Gitは変更の履歴を扱う道具。いつ、どんな意図で変えたかを、コミットとして残せるんだ。
-        seconds: 8.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 保存したら、世界中に作品が公開されるの？
-        seconds: 4.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: 保存、コミット、共有は別の操作だよ。ローカルにコミットしても、それだけで外へは送られない。
-        seconds: 8.7
-        styles:
-          - lesson
-    - Moko.say:
-        text: セーブは作業中の状態。コミットは、説明を添えて残す区切りだね。
-        seconds: 6.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。Gitの履歴は、記録した内容を取り出したり、変更の理由を調べたりする手がかりになる。
-        seconds: 8.7
-        styles:
-          - lesson
-    - Moko.say:
-        text: Gitがあれば、バックアップは全部いらない？
-        seconds: 4.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 未記録の変更や、追跡していないファイルまで守るわけじゃないよ。別の保存先も必要に応じて用意しよう。
-        seconds: 9.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: SB3はひとまとめのファイル。中身の差分を、行として読めるとは限らないね。
-        seconds: 7.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: Plusのフォルダー形式なら、ソースや素材を分けて扱える。形式と対応環境を確認し、まず複製した練習作品で試そう。
-        seconds: 10.4
-        styles:
-          - lesson
-    - Moko.say:
-        text: この講座は説明とクイズで進むよ。ぼくたちが勝手にcommitやpushをすることはないんだ。
-        seconds: 8.8
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:1
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:2
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:3
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:4
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:5
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:6
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:7
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:8
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:9
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:10
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:11
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: snapshot_quiz
   snapshot_quiz:
     - stage: Quiz_git_snapshot
@@ -291,16 +275,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -325,21 +302,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: ローカルとリモートは別の場所。手元の履歴を作る操作と、外へ送る操作を分けて考えよう。
-        seconds: 8.2
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:12
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: snapshot_quiz
   snapshot_yes:
     - stage: Recap_git_snapshot
@@ -353,21 +331,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: ローカルの履歴に記録されるよ。共有先へ送るpushは別の操作。保存とも区別して覚えよう。
-        seconds: 8.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:13
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -392,6 +381,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -402,56 +402,32 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: コミットの前に、目を閉じて「きっとうまくいった」と念じます！
-        seconds: 6.2
-        styles:
-          - lesson
-    - Pura.say:
-        text: 目を開けて。まず何が変わったかを見よう。状態と差分は、作業を理解する入口だよ。
-        seconds: 7.7
-        styles:
-          - lesson
-    - Moko.say:
-        text: 上の図は、60を70に変えた例。マイナス行が前、プラス行が後だね。
-        seconds: 6.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。これは説明用の図で、今のGitの状態を読み取った表示ではないよ。実際の差分はGit画面で確認しよう。
-        seconds: 9.9
-        styles:
-          - lesson
-    - Moko.say:
-        text: 間隔だけを変えたつもりなのに、音の素材も変わっていたら？
-        seconds: 5.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 意図した変更か調べよう。関連のない変更は混ぜず、必要な作業を別の区切りにすると説明しやすい。
-        seconds: 8.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 自動で生成されるファイルが大量にあると、読みたい変更が埋もれそう。
-        seconds: 6.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: 何を追跡するかはプロジェクトの方針に合わせよう。素材や生成物を、全部同じ扱いにはしないんだ。
-        seconds: 8.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: じゃあ実際のコードで、数値を一つ変えるところから試そう。
-        seconds: 5.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 「関数れんしゅう」の個数か間隔を変えてみて。ガイドは変更の発生までを待つ。Gitへの記録はまだ行わないよ。
-        seconds: 9.9
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:14
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:15
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:16
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:17
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:18
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:19
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:20
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:21
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:22
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:23
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - broadcastMessageAndWait: lesson:git_diff
     - goto: diff_quiz
   diff_quiz:
@@ -466,16 +442,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -500,21 +469,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 予想外の変更が混じっているかもしれないね。まず実際に変わった対象と内容を確認しよう。
-        seconds: 8.2
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:24
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: diff_quiz
   diff_yes:
     - stage: Recap_git_diff
@@ -528,21 +498,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 差分から対象と意図を確かめよう。動作確認も必要で、差分が小さいだけで正しいとは限らないよ。
-        seconds: 8.7
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:25
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -567,6 +548,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -577,61 +569,34 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: Gitにもステージ？ スプライトが漫才をする場所？
-        seconds: 5.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: 同じ言葉でも別物！ Gitのステージは、次のコミットへ入れる内容を準備する場所だよ。
-        seconds: 8.2
-        styles:
-          - lesson
-    - Moko.say:
-        text: ファイルを編集しただけでは、まだコミットに入れる準備ができたとは限らないんだね。
-        seconds: 7.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 対象の変更を選び、ステージした内容を確認し、意味のある区切りでコミットする。
-        seconds: 7.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: ステージした後、さらに数値を変えた。その変更も勝手に入る？
-        seconds: 6.1
-        styles:
-          - lesson
-    - Pura.say:
-        text: 通常は、後の編集は別の未ステージ変更になる。コミット直前には、ステージ側の差分を見よう。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: メッセージは「変更しました」で毎回よい？
-        seconds: 4.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: 何を、なぜ変えたかが分かると役に立つ。「星が重ならないよう間隔を広げる」なら意図が伝わるね。
-        seconds: 8.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 一行につき一コミットにすれば、最高に小さい！
-        seconds: 4.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 行数競争じゃないよ。一つの目的として理解し、確認できる単位を考えよう。必要な関連変更は一緒に含める。
-        seconds: 9.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 記録できたら履歴を見て、入れたつもりの変更が入ったか確かめよう！
-        seconds: 6.6
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:26
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:27
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:28
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:29
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:30
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:31
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:32
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:33
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:34
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:35
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:36
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: stage_quiz
   stage_quiz:
     - stage: Quiz_git_stage
@@ -645,16 +610,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -679,21 +637,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 準備した時点と、その後の作業は別になり得るよ。何が次の記録に入るか、実際の差分を見よう。
-        seconds: 8.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:37
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: stage_quiz
   stage_yes:
     - stage: Recap_git_stage
@@ -707,21 +666,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: コミットに入るのは準備した内容。未ステージの変更と分けて、直前の対象を確認しよう。
-        seconds: 8
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:38
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -746,6 +716,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -756,56 +737,32 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: 新しい演出を試したい。でも、元の作品も見失いたくない！
-        seconds: 5.8
-        styles:
-          - lesson
-    - Pura.say:
-        text: ブランチで作業の流れを分けられる。共通の履歴から別の変更を重ね、あとで統合を考えよう。
-        seconds: 8.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 枝を作ると、全ファイルが別の箱に丸ごとコピーされるの？
-        seconds: 5.8
-        styles:
-          - lesson
-    - Pura.say:
-        text: Gitのブランチは、あるコミットを指す名前として考えるとよいよ。新しいコミットで、その指す先が進む。
-        seconds: 9.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 名前は「星の改良」みたいに目的を示すと分かりやすいね。
-        seconds: 5.8
-        styles:
-          - lesson
-    - Pura.say:
-        text: 実際の命名規則はチームに合わせよう。作業を始める前に、今いるブランチを確認する習慣も大切だ。
-        seconds: 8.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 未コミットの変更があるけど、とにかく切り替えれば大丈夫？
-        seconds: 5.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 切り替えが止められる場合も、変更が持ち越される場合もある。先に状態を確認し、保存や記録の方針を決めよう。
-        seconds: 9.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 履歴と作業中のファイルは、いつも同じ話ではないんだね。
-        seconds: 5.8
-        styles:
-          - lesson
-    - Pura.say:
-        text: うん。どの枝で、どの変更を作っているかを意識すると、後から追いやすくなるよ。
-        seconds: 7.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:39
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:40
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:41
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:42
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:43
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:44
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:45
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:46
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:47
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:48
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: branch_quiz
   branch_quiz:
     - stage: Quiz_git_branch
@@ -819,16 +776,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -853,21 +803,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 枝の実体は単純なフォルダー複製とは違うよ。まず現在の枝と、残っている変更を確認しよう。
-        seconds: 8.3
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:49
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: branch_quiz
   branch_yes:
     - stage: Recap_git_branch
@@ -881,21 +832,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 現在地と作業状態を確認しよう。ブランチの履歴と、未コミットの作業を混同しないことが大切だよ。
-        seconds: 8.8
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:50
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -920,6 +882,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -930,56 +903,32 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: 別の枝を合わせよう。Gitがあるから、作品の意味も全部理解してくれるよね？
-        seconds: 7.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: 文字として合わせられても、意図や動作まで保証しないよ。統合後には差分と動作を確認しよう。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 同じ場所を違う内容に変えると、競合になることがあるんだね。
-        seconds: 6.1
-        styles:
-          - lesson
-    - Pura.say:
-        text: 両方の目的を読み、最終的にどんな状態にするか決める。片方を機械的に選べば正解とは限らない。
-        seconds: 8.7
-        styles:
-          - lesson
-    - Moko.say:
-        text: 競合の印を消しただけで、仕事が終わった気になりそう！
-        seconds: 5.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: 必要な内容が残っているか確かめ、関連する処理も試そう。解消と動作確認はセットだよ。
-        seconds: 8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 公開したコミットに間違いを見つけたら、過去を消せばよい？
-        seconds: 5.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 共有済みの履歴を勝手に書き換えると、他の人に影響する。打ち消す変更を新たに記録するrevertも選択肢になる。
-        seconds: 10.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 履歴を消すのと、変更を打ち消して履歴を残すのは、違う操作だね。
-        seconds: 6.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: 修正方法は状況とチームの方針に合わせよう。分からない状態で破壊的な操作を連打せず、差分を確かめるんだ。
-        seconds: 9.6
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:51
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:52
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:53
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:54
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:55
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:56
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:57
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:58
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:59
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:60
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: merge_quiz
   merge_quiz:
     - stage: Quiz_git_merge
@@ -993,16 +942,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -1027,21 +969,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: Gitは作品の意味まで判断してくれるわけではないよ。最終的な内容と動作を自分で確認しよう。
-        seconds: 8.7
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:61
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: merge_quiz
   merge_yes:
     - stage: Recap_git_merge
@@ -1055,21 +998,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 競合の印を消すだけでは十分ではないね。統合した結果が、両方の目的を満たすか確かめよう。
-        seconds: 8.3
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:62
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -1094,6 +1048,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -1104,61 +1069,34 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: リモートって、遠くからエアコンを操作するやつ？
-        seconds: 5.1
-        styles:
-          - lesson
-    - Pura.say:
-        text: それはリモコン。Gitでは共有先のリポジトリ。GitHubはその置き場所を提供するサービスの一つだよ。
-        seconds: 9.6
-        styles:
-          - lesson
-    - Moko.say:
-        text: fetchで履歴を取り寄せて、相手の変更を調べる。pullは統合も行うんだね。
-        seconds: 7.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。pullでどう統合するかは設定や指定による。実行前に現在の枝と作業状態を確認しよう。
-        seconds: 8.7
-        styles:
-          - lesson
-    - Moko.say:
-        text: pushすれば、自分のコミットが共有先へ送られる。コミット前のファイル全部が送られるわけじゃないね。
-        seconds: 9.5
-        styles:
-          - lesson
-    - Pura.say:
-        text: 送信先と枝を確かめよう。共有前に差分を読み、必要な動作確認を行い、チームならレビューを依頼する。
-        seconds: 9.1
-        styles:
-          - lesson
-    - Moko.say:
-        text: パスワードも作品の素材と一緒に記録しておけば、便利そう！
-        seconds: 5.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: それは記録しない。秘密情報を履歴へ入れると、後でファイルを消しただけでは過去の記録に残る場合がある。
-        seconds: 9.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: .gitignoreに書けば、すでに追跡中の秘密まで自動で消える？
-        seconds: 6.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: 消えないよ。ignoreは主に未追跡ファイルを扱う設定。漏えいした秘密は失効・再発行など、別の対応も必要になる。
-        seconds: 10.4
-        styles:
-          - lesson
-    - Moko.say:
-        text: まず手元で、小さく記録して、変更を読めるようにする。Gitは制作の相談相手になりそう！
-        seconds: 8.3
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:63
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:64
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:65
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:66
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:67
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:68
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:69
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:70
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:71
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:72
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:73
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: remote_quiz
   remote_quiz:
     - stage: Quiz_git_remote
@@ -1172,16 +1110,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -1206,21 +1137,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: ignoreは過去の履歴を消す機能ではないよ。送る内容と共有先を確認する方を選ぼう。
-        seconds: 8.2
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:74
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: remote_quiz
   remote_yes:
     - stage: Recap_git_remote
@@ -1234,21 +1166,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 共有する対象を確認しよう。履歴に入れた秘密は、ignoreや現在のファイル削除だけでは消えない場合があるよ。
-        seconds: 10.1
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:75
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
